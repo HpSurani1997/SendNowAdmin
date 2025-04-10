@@ -20,6 +20,8 @@ const AllProductTable = ({ tableData, handleDelete }: Props) => {
 
   const handleClose = () => setShowModal(false);
 
+  const onSaveChanges = () => {};
+
   return (
     <>
       <table className="table table-dashed table-hover digi-dataTable all-product-table">
@@ -139,31 +141,57 @@ const AllProductTable = ({ tableData, handleDelete }: Props) => {
                   <option value="cancelled">Cancelled</option>
                 </Form.Control>
               </Form.Group>
-              {!isEdit &&
-                selectedItem.media &&
-                selectedItem.media.length > 0 && (
-                  <Form.Group>
-                    <Form.Label>Images</Form.Label>
-                    <div
-                      style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}
-                    >
-                      {selectedItem.media.map((image, index) => (
+              {selectedItem.media && selectedItem.media.length > 0 && (
+                <Form.Group>
+                  <Form.Label>Images</Form.Label>
+                  <div
+                    style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}
+                  >
+                    {selectedItem.media.map((image, index) => (
+                      <div
+                        className="btn-box"
+                        style={{ position: "relative", marginLeft: 10 }}
+                      >
+                        {isEdit && (
+                          <button
+                            style={{
+                              position: "absolute",
+                              right: -10,
+                              top: -10,
+                              background: "transparent",
+                              border: "none",
+                              padding: 0,
+                              cursor: "pointer",
+                              color: "red", // or any color you like
+                            }}
+                            className="btn-box"
+                            onClick={() => {}}
+                          >
+                            <i
+                              className="fa fa-times-circle"
+                              aria-hidden="true"
+                            />
+                          </button>
+                        )}
                         <img
                           key={index}
                           src={image.mediaUrl}
                           alt={`Parcel ${index}`}
                           style={{ maxWidth: "100px", height: "100px" }}
                         />
-                      ))}
-                    </div>
-                  </Form.Group>
-                )}
+                      </div>
+                    ))}
+                  </div>
+                </Form.Group>
+              )}
             </Form>
           )}
         </Modal.Body>
         {isEdit && (
           <Modal.Footer>
-            <Button variant="primary">Save Changes</Button>
+            <Button onClick={onSaveChanges} variant="primary">
+              Save Changes
+            </Button>
           </Modal.Footer>
         )}
       </Modal>
