@@ -52,7 +52,7 @@ const AllProductPage = () => {
 
             <div className="table-responsive">
               <AllProductTable
-                tableData={currentData}
+                tableData={currentData as any}
                 handleDelete={handleDelete}
               />
             </div>

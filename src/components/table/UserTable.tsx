@@ -1,10 +1,6 @@
 import { useState } from "react";
 import Select from "react-select";
-import { toggleEditTaskModalOpen } from "../../redux/features/editTaskModalSlice";
-
-import { toggleViewTaskModalOpen } from "../../redux/features/viewTaskModalSlice";
-
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { useAppSelector } from "../../redux/hooks";
 import { Admin, Option } from "../../types";
 
 type Props = {
@@ -15,20 +11,11 @@ type Props = {
 
 const UserTable = ({ tableData, handleDelete, handleUpdateStatus }: Props) => {
   const darkMode = useAppSelector((state) => state.theme.isDark);
-  const dispatch = useAppDispatch();
 
   // State for managing the initial status and priority for each row
   const [initialStatus, setInitialStatus] = useState<{
     [key: number]: Option | null;
   }>({});
-
-  const openEditModal = () => {
-    dispatch(toggleEditTaskModalOpen());
-  };
-
-  const openTaskViewModal = () => {
-    dispatch(toggleViewTaskModalOpen());
-  };
 
   const statusOptions = [
     { value: "Not Started", label: "Not Started" },
