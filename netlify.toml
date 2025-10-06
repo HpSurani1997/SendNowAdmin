@@ -1,3 +1,22 @@
+# Static assets should be served directly
+[[redirects]]
+from = "/assets/*"
+to = "/assets/:splat"
+status = 200
+
+# Images and other static files
+[[redirects]]
+from = "/img/*"
+to = "/img/:splat"
+status = 200
+
+# API routes (if any) - adjust if you have API endpoints
+[[redirects]]
+from = "/api/*"
+to = "/.netlify/functions/:splat"
+status = 200
+
+# All other routes should fallback to index.html for SPA routing
 [[redirects]]
 from = "/*"
 to = "/index.html"

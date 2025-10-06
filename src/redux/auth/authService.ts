@@ -1,7 +1,7 @@
 import axios from "axios";
 import { AdminRequest, UserUpdateRequest } from "./authSlice";
 
-const baseUrl = "https://sendnow.app/";
+const baseUrl = "http://sendnow.app/";
 
 const loginUser = async (email: string, password: string) => {
   try {
