@@ -3,7 +3,6 @@ import axios from 'axios';
 const baseUrl = "http://sendnow.app/";
 
 
-
 const getMarketPlace = async (token: string) => {
   try {
     const response = await axios.get(
