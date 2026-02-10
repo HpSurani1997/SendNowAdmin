@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://sendnow.app/";
+const baseUrl = "https://sendnow.app/";
 
 const getCategory = async (token: string) => {
   try {
